@@ -1,11 +1,11 @@
-import TitleSection from '../components/TitleSection/TitleSection.jsx';
+import SectionTitle from '../components/SectionTitle/SectionTitle';
 import { TITLE } from '../auxiliary/constants';
 import styles from './Home.module.css';
 
 const Home = () => {
   return (
     <div className={styles.container}>
-      <TitleSection>{TITLE}</TitleSection>
+      <SectionTitle>{TITLE}</SectionTitle>
     </div>
   );
 };
