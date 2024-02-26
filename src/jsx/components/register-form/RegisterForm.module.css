@@ -1,4 +1,4 @@
-.contactform {
+.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,12 +10,13 @@
   margin-bottom: 12px;
 }
 
-.contactinfo {
+.content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   row-gap: 8px;
 }
+
 .label,
 .input {
   width: 100%;
@@ -46,14 +47,14 @@
 }
 
 @media screen and (min-width: 768px) {
-  .contactform {
+  .form {
     width: 375px;
     margin-bottom: 24px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .contactform {
+  .form {
     margin-bottom: 28px;
   }
 }

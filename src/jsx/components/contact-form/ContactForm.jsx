@@ -34,10 +34,10 @@ const ContactForm = () => {
     >
       <Form className={styles.contactform}>
         <div className={styles.info}>
-          <FormField type="text" name="name">
+          <FormField type="text" name="name" styles={styles}>
             {LABEL_NAME}
           </FormField>
-          <FormField type="tel" name="number">
+          <FormField type="tel" name="number" styles={styles}>
             {LABEL_PHONE}
           </FormField>
         </div>

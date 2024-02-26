@@ -1,8 +1,7 @@
 import { Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
-import styles from './FromField.module.css';
 
-const FormField = ({ children, name, ...props }) => {
+const FormField = ({ children, name, styles, ...props }) => {
   const inputId = useId();
   return (
     <div>
