@@ -10,6 +10,7 @@ import SearchBox from './search-box/SearchBox';
 import Infinity from './loaders/Infinity/Infinity';
 import ContactsList from './contacts-list/ContactsList';
 import { SEARCH_LABEL, TITLE } from '../auxiliary/constants';
+//import RegisterForm from './register-form/RegisterForm';
 
 const App = () => {
   const error = useSelector(selectError);
@@ -24,6 +25,7 @@ const App = () => {
     <AppContainer>
       <Toaster />
       <TitleSection>{TITLE}</TitleSection>
+      {/* <RegisterForm/> */}
       <ContactForm />
       <SearchBox>{SEARCH_LABEL}</SearchBox>
       {isLoading && !error && <Infinity isLoading={isLoading} />}
