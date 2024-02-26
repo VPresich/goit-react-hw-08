@@ -1,4 +1,4 @@
-import TitleSection from '../components/TitleSection/TitleSection';
+import TitleSection from '../components/TitleSection/TitleSection.jsx';
 import { TITLE } from '../auxiliary/constants';
 import styles from './Home.module.css';
 
