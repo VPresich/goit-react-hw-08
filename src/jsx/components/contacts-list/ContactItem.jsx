@@ -1,9 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectDeletingItem, selectError } from '../../redux/selectors.js';
-import { deleteContact } from '../../redux/operations.js';
+import {
+  selectDeletingItem,
+  selectError,
+} from '../../redux/contacts/selectors.js';
+import { deleteContact } from '../../redux/contacts/operations.js';
 import { FaUser, FaPhone } from 'react-icons/fa';
 import CustomButton from '../custom-button/CustomButton';
-import { CAPTION_DELETE, CAPTION_DELETEING } from '../../auxiliary/constants';
+import { CAPTION_DELETE, CAPTION_DELETEING } from './constants';
 import styles from './ContactItem.module.css';
 
 const ContactItem = ({ contact: { id, name, number } }) => {

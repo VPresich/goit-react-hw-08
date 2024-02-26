@@ -1,16 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectError, selectIsAdding } from '../../redux/selectors';
-import { addContact } from '../../redux/operations';
+import { selectError, selectIsAdding } from '../../redux/contacts/selectors';
+import { addContact } from '../../redux/contacts/operations';
 import { Formik, Form } from 'formik';
-import { INITIAL_CONTACT } from '../../auxiliary/constants';
-import { FeedbackSchema } from '../../auxiliary/feedback-schema';
+import { FeedbackSchema } from './feedback-schema';
 
 import {
+  INITIAL_CONTACT,
   LABEL_NAME,
   LABEL_PHONE,
   CAPTION_ADD,
   CAPTION_ADDING,
-} from '../../auxiliary/constants';
+} from './constants';
 
 import CustomButton from '../custom-button/CustomButton';
 import FormField from '../form-field/FormField';

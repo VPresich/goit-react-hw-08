@@ -5,9 +5,9 @@ import {
   ERR_ADD,
   SUCCESS_DELETE,
   ERR_DELETE,
-} from '../notification/constants';
-import { errNotify } from '../notification/error-notify';
-import { successNotify } from '../notification/success-notify';
+} from '../../notification/constants';
+import { errNotify } from '../../notification/error-notify';
+import { successNotify } from '../../notification/success-notify';
 
 import axios from 'axios';
 

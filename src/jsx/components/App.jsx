@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
-import { fetchContacts } from '../redux/operations';
-import { selectError, selectIsLoading } from '../redux/selectors';
+import { fetchContacts } from '../redux/contacts/operations';
+import { selectError, selectIsLoading } from '../redux/contacts/selectors';
 import AppContainer from './app-container/AppContainer';
 import TitleSection from './titlesection/TitleSection';
 import ContactForm from './contact-form/ContactForm';
