@@ -1,12 +1,12 @@
-import AppContainer from '../components/app-container/AppContainer';
-import TitleSection from '../components/titlesection/TitleSection';
+import TitleSection from '../components/TitleSection/TitleSection';
 import { TITLE } from '../auxiliary/constants';
+import styles from './Home.module.css';
 
 const Home = () => {
   return (
-    <AppContainer>
+    <div className={styles.container}>
       <TitleSection>{TITLE}</TitleSection>
-    </AppContainer>
+    </div>
   );
 };
 export default Home;

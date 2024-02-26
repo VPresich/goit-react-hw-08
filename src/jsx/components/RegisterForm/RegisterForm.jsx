@@ -1,9 +1,9 @@
-//import { useDispatch } from 'react-redux';
-// import { register } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/operations';
 
 import { Formik, Form } from 'formik';
-import FormField from '../form-field/FormField';
-import CustomButton from '../custom-button/CustomButton';
+import FormField from '../FormField/FormField';
+import CustomButton from '../CustomButton/CustomButton';
 import {
   INITIAL_REGISTER,
   CAPTION_REGISTER,
@@ -11,13 +11,13 @@ import {
   LABEL_EMAIL,
   LABEL_PASSWORD,
 } from './constants';
-import { FeedbackSchema } from './feedback-schema';
+import { feedbackSchema } from './feedback-schema';
 import styles from './RegisterForm.module.css';
 
 const RegisterForm = () => {
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
-    //   dispatch(register(values));
+    dispatch(register(values));
     console.log(values);
     actions.resetForm();
   };
@@ -25,7 +25,7 @@ const RegisterForm = () => {
     <Formik
       initialValues={INITIAL_REGISTER}
       onSubmit={handleSubmit}
-      validationSchema={FeedbackSchema}
+      validationSchema={feedbackSchema}
     >
       <Form className={styles.form} autoComplete="off">
         <div className={styles.info}>

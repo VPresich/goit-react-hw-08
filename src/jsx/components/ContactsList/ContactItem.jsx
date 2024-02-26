@@ -5,8 +5,8 @@ import {
 } from '../../redux/contacts/selectors.js';
 import { deleteContact } from '../../redux/contacts/operations.js';
 import { FaUser, FaPhone } from 'react-icons/fa';
-import CustomButton from '../custom-button/CustomButton';
-import { CAPTION_DELETE, CAPTION_DELETEING } from './constants';
+import CustomButton from '../CustomButton/CustomButton.jsx';
+import { CAPTION_DELETE, CAPTION_DELETEING } from './constants.js';
 import styles from './ContactItem.module.css';
 
 const ContactItem = ({ contact: { id, name, number } }) => {

@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
-import AppContainer from '../components/app-container/AppContainer';
-import { RegisterForm } from '../../jsx/components/register-form/RegisterForm';
+import AppSection from '../components/AppSection/AppSection';
+import RegisterForm from '../components/RegisterForm/RegisterForm';
 
 const Register = () => {
   return (
@@ -8,9 +8,9 @@ const Register = () => {
       <Helmet>
         <title>Registration</title>
       </Helmet>
-      <AppContainer>
+      <AppSection>
         <RegisterForm />
-      </AppContainer>
+      </AppSection>
     </div>
   );
 };

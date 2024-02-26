@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { BASE_URL, END_POINT, CONTACTS_SLICE } from './constants';
+import { END_POINT, CONTACTS_SLICE } from './constants';
 import {
   SUCCESS_ADD,
   ERR_ADD,
@@ -11,7 +11,7 @@ import { successNotify } from '../../notification/success-notify';
 
 import axios from 'axios';
 
-axios.defaults.baseURL = BASE_URL;
+//axios.defaults.baseURL = BASE_URL;
 
 export const fetchContacts = createAsyncThunk(
   `${CONTACTS_SLICE}/fetchAll`,

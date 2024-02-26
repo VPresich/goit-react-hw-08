@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
-import AppContainer from '../components/app-container/AppContainer';
-import { LoginForm } from '../../jsx/components/login-form/LoginForm';
+import AppSection from '../components/AppSection/AppSection';
+import LoginForm from '../components/LoginForm/LoginForm';
 
 const Login = () => {
   return (
@@ -8,9 +8,9 @@ const Login = () => {
       <Helmet>
         <title>Login</title>
       </Helmet>
-      <AppContainer>
+      <AppSection>
         <LoginForm />
-      </AppContainer>
+      </AppSection>
     </div>
   );
 };

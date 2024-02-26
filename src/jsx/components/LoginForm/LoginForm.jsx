@@ -1,30 +1,29 @@
-//import { useDispatch } from 'react-redux';
-// import { logIn } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../redux/auth/operations';
 
 import { Formik, Form } from 'formik';
-import FormField from '../form-field/FormField';
-import CustomButton from '../custom-button/CustomButton';
+import FormField from '../FormField/FormField';
+import CustomButton from '../CustomButton/CustomButton';
 import {
   INITIAL_LOGIN,
   CAPTION_LOGIN,
   LABEL_EMAIL,
   LABEL_PASSWORD,
 } from './constants';
-import { FeedbackSchema } from './feedback-schema';
+import { feedbackSchema } from './feedback-schema';
 import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
-    //   dispatch(logIn(values));
-    console.log(values);
+    dispatch(logIn(values));
     actions.resetForm();
   };
   return (
     <Formik
       initialValues={INITIAL_LOGIN}
       onSubmit={handleSubmit}
-      validationSchema={FeedbackSchema}
+      validationSchema={feedbackSchema}
     >
       <Form className={styles.form} autoComplete="off">
         <div className={styles.info}>

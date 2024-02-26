@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectError, selectIsAdding } from '../../redux/contacts/selectors';
 import { addContact } from '../../redux/contacts/operations';
 import { Formik, Form } from 'formik';
-import { FeedbackSchema } from './feedback-schema';
+import { feedbackSchema } from './feedback-schema';
 
 import {
   INITIAL_CONTACT,
@@ -12,8 +12,8 @@ import {
   CAPTION_ADDING,
 } from './constants';
 
-import CustomButton from '../custom-button/CustomButton';
-import FormField from '../form-field/FormField';
+import CustomButton from '../CustomButton/CustomButton';
+import FormField from '../FormField/FormField';
 import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
@@ -30,7 +30,7 @@ const ContactForm = () => {
     <Formik
       initialValues={INITIAL_CONTACT}
       onSubmit={handleSubmit}
-      validationSchema={FeedbackSchema}
+      validationSchema={feedbackSchema}
     >
       <Form className={styles.contactform}>
         <div className={styles.info}>
