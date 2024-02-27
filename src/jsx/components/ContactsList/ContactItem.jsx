@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 import {
   selectDeletingItem,
   selectUpdatingItem,
@@ -16,15 +17,22 @@ import {
   CAPTION_EDITING,
   CAPTION_EDIT,
 } from './constants.js';
+
+import CustomModal from '../CustomModal/CustomModal.jsx';
+import ConfirmationForm from '../ConfirmationForm/ConfrimationForm.jsx';
+
 import styles from './ContactItem.module.css';
 
 const ContactItem = ({ contact: { id, name, number } }) => {
+  const [confirmation, setConfirmation] = useState(false);
   const isError = useSelector(selectError);
   const isOperationDel = useSelector(selectDeletingItem) === id;
   const isOperationUpdate = useSelector(selectUpdatingItem) === id;
   const dispatch = useDispatch();
+
   const handleDeleteItem = () => {
     dispatch(deleteContact(id));
+    setConfirmation(false);
   };
 
   const handleEditItem = () => {
@@ -42,13 +50,16 @@ const ContactItem = ({ contact: { id, name, number } }) => {
         </p>
       </div>
       <div className={styles.buttons}>
-        <CustomButton onClick={handleDeleteItem} type={'button'}>
+        <CustomButton onClick={() => setConfirmation(true)} type={'button'}>
           {isOperationDel && !isError ? CAPTION_DELETEING : CAPTION_DELETE}
         </CustomButton>
         <CustomButton onClick={handleEditItem} type={'button'}>
           {isOperationUpdate && !isError ? CAPTION_EDITING : CAPTION_EDIT}
         </CustomButton>
       </div>
+      <CustomModal visible={confirmation} setVisible={setConfirmation}>
+        <ConfirmationForm onSubmit={handleDeleteItem}></ConfirmationForm>
+      </CustomModal>
     </>
   );
 };
