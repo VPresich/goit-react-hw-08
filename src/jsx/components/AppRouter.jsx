@@ -1,12 +1,13 @@
+import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 import AppContainer from './AppContainer/AppContainer.jsx';
 
-import HomePage from '../pages/Home/Home.jsx';
-import ContactsPage from '../pages/Contacts.jsx';
-import RegisterPage from '../pages/Register.jsx';
-import LoginPage from '../pages/Login.jsx';
+const HomePage = lazy(() => import('../pages/Home/Home.jsx'));
+const ContactsPage = lazy(() => import('../pages/Contacts.jsx'));
+const RegisterPage = lazy(() => import('../pages/Register.jsx'));
+const LoginPage = lazy(() => import('../pages/Login.jsx'));
 
 const AppRouter = () => {
   return (
