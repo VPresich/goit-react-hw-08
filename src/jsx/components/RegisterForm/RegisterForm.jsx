@@ -18,7 +18,6 @@ const RegisterForm = () => {
   const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
     dispatch(register(values));
-    console.log(values);
     actions.resetForm();
   };
   return (
