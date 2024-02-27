@@ -3,7 +3,7 @@ import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 import AppContainer from './AppContainer/AppContainer.jsx';
 
-import HomePage from '../pages/Home.jsx';
+import HomePage from '../pages/Home/Home.jsx';
 import ContactsPage from '../pages/Contacts.jsx';
 import RegisterPage from '../pages/Register.jsx';
 import LoginPage from '../pages/Login.jsx';
