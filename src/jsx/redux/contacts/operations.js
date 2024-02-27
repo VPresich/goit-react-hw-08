@@ -5,13 +5,13 @@ import {
   ERR_ADD,
   SUCCESS_DELETE,
   ERR_DELETE,
+  SUCCESS_UPDATE,
+  ERR_UPDATE,
 } from '../../notification/constants';
 import { errNotify } from '../../notification/error-notify';
 import { successNotify } from '../../notification/success-notify';
 
 import axios from 'axios';
-
-//axios.defaults.baseURL = BASE_URL;
 
 export const fetchContacts = createAsyncThunk(
   `${CONTACTS_SLICE}/fetchAll`,
@@ -52,3 +52,26 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+
+export const updateContact = createAsyncThunk(
+  `${CONTACTS_SLICE}/updateContact`,
+  async (data, thunkAPI) => {
+    try {
+      console.log({ name: data.name, number: data.number });
+      const response = await axios.patch(`${END_POINT}/${data.id}`, {
+        name: data.name,
+        number: data.number,
+      });
+      successNotify(SUCCESS_UPDATE);
+      return response.data;
+    } catch (error) {
+      errNotify(ERR_UPDATE);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const saveUpdatingItemIndex = id => ({
+  type: `${CONTACTS_SLICE}/saveUpdatingItem`,
+  payload: id,
+});

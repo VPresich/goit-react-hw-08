@@ -21,6 +21,12 @@
   background-color: var(--btn-accent-color);
 }
 
+btn:disabled {
+  cursor: not-allowed;
+  background-color: var(--section-bgr-color);
+  color: var(--secondary-color);
+}
+
 @media screen and (min-width: 768px) {
   .btn {
     padding-right: 16px;

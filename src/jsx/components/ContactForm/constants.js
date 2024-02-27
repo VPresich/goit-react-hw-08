@@ -4,6 +4,10 @@ export const INITIAL_CONTACT = {
 };
 export const CAPTION_ADD = 'Add Contact';
 export const CAPTION_ADDING = 'Adding Contact...';
+
+export const CAPTION_UPDATE = 'Update Contact';
+export const CAPTION_UPDATING = 'Updating Contact...';
+
 export const LABEL_NAME = 'Name:';
 export const LABEL_PHONE = 'Number:';
 

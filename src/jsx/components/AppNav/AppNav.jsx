@@ -6,7 +6,6 @@ import clsx from 'clsx';
 
 const AppNav = () => {
   const { isLoggedIn } = useAuth();
-  console.log('isLoggedIn', isLoggedIn);
 
   const [activeLink, setActiveLink] = useState('/');
   const handleNavLinkClick = to => {

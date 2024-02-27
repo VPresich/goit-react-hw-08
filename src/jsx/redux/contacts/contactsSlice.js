@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { CONTACTS_SLICE } from './constants';
-import { fetchContacts, deleteContact, addContact } from './operations';
+import {
+  fetchContacts,
+  deleteContact,
+  addContact,
+  updateContact,
+} from './operations';
 
 const contactsSlice = createSlice({
   name: CONTACTS_SLICE,
@@ -10,6 +15,7 @@ const contactsSlice = createSlice({
     error: null,
     isAdding: false,
     deletingItem: null,
+    updatingItem: null,
   },
 
   extraReducers: builder => {
@@ -53,6 +59,30 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, (state, action) => {
         state.deletingItem = null;
         state.error = action.payload;
+      })
+
+      .addCase(updateContact.pending, state => {
+        state.isAdding = true;
+      })
+      .addCase(updateContact.fulfilled, (state, action) => {
+        state.isAdding = false;
+        const updatedContact = action.payload;
+        const contactIndex = state.items.findIndex(
+          contact => contact.id === updatedContact.id
+        );
+        if (contactIndex !== -1) {
+          state.items[contactIndex] = updatedContact;
+        }
+        state.error = null;
+        state.updatingItem = null;
+      })
+      .addCase(updateContact.rejected, (state, action) => {
+        state.isAdding = false;
+        state.error = action.payload;
+      })
+
+      .addCase('contacts/saveUpdatingItem', (state, action) => {
+        state.updatingItem = action.payload;
       });
   },
 });

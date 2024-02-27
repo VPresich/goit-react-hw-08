@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectError, selectIsAdding } from '../../redux/contacts/selectors';
-import { addContact } from '../../redux/contacts/operations';
+import {
+  selectError,
+  selectIsAdding,
+  selectUpdatingItem,
+} from '../../redux/contacts/selectors';
+import { addContact, updateContact } from '../../redux/contacts/operations';
 import { Formik, Form } from 'formik';
 import { feedbackSchema } from './feedback-schema';
 
@@ -10,6 +14,8 @@ import {
   LABEL_PHONE,
   CAPTION_ADD,
   CAPTION_ADDING,
+  CAPTION_UPDATE,
+  CAPTION_UPDATING,
 } from './constants';
 
 import CustomButton from '../CustomButton/CustomButton';
@@ -19,16 +25,24 @@ import styles from './ContactForm.module.css';
 const ContactForm = () => {
   const isOperation = useSelector(selectIsAdding);
   const isError = useSelector(selectError);
+  const updatingItem = useSelector(selectUpdatingItem);
+  const buttonCaption = updatingItem ? CAPTION_UPDATE : CAPTION_ADD;
+  const buttonCaptionDoing = updatingItem ? CAPTION_UPDATING : CAPTION_ADDING;
 
   const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
-    dispatch(addContact(values));
+    if (updatingItem) {
+      dispatch(updateContact(values));
+    } else {
+      dispatch(addContact(values));
+    }
     !isError && actions.resetForm();
   };
 
   return (
     <Formik
-      initialValues={INITIAL_CONTACT}
+      initialValues={updatingItem ? updatingItem : INITIAL_CONTACT}
+      enableReinitialize={true}
       onSubmit={handleSubmit}
       validationSchema={feedbackSchema}
     >
@@ -42,7 +56,7 @@ const ContactForm = () => {
           </FormField>
         </div>
         <CustomButton type="submit">
-          {isOperation && !isError ? CAPTION_ADDING : CAPTION_ADD}
+          {isOperation && !isError ? buttonCaptionDoing : buttonCaption}
         </CustomButton>
       </Form>
     </Formik>

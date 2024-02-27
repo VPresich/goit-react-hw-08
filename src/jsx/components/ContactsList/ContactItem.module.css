@@ -3,6 +3,11 @@
   flex-direction: column;
   row-gap: 16px;
 }
+.buttons {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
 
 .name,
 .phone {
