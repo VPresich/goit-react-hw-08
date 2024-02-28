@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 import { END_POINT, CONTACTS_SLICE } from './constants';
 import {
   SUCCESS_ADD,
@@ -10,8 +11,6 @@ import {
 } from '../../notification/constants';
 import { errNotify } from '../../notification/error-notify';
 import { successNotify } from '../../notification/success-notify';
-
-import axios from 'axios';
 
 export const fetchContacts = createAsyncThunk(
   `${CONTACTS_SLICE}/fetchAll`,
