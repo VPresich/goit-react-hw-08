@@ -8,9 +8,9 @@
 }
 
 .active {
-  color: var(--active-menu-color);
+  color: var(--accent-color-gold);
 }
 
-.navLink:hover {
-  color: var(--active-menu-color);
+.link:hover {
+  color: var(--accent-color-gold);
 }
