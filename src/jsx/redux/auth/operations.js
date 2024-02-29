@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { BASE_URL } from '../../auxiliary/constants';
+import { ERR_LOGIN, ERR_REGISTER } from '../../notification/constants';
+import { errNotify } from '../../notification/error-notify';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = BASE_URL;
@@ -28,6 +30,7 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      errNotify(ERR_REGISTER + error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -46,6 +49,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      errNotify(ERR_LOGIN + error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

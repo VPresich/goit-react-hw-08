@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
-
+import { useAuth } from '../../hooks';
 import { Formik, Form } from 'formik';
 import FormField from '../FormField/FormField';
 import CustomButton from '../CustomButton/CustomButton';
@@ -14,10 +14,11 @@ import { feedbackSchema } from './feedback-schema';
 import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
+  const { isLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
     dispatch(logIn(values));
-    actions.resetForm();
+    isLoggedIn && actions.resetForm();
   };
   return (
     <Formik

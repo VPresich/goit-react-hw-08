@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
-
+import { useAuth } from '../../hooks';
 import { Formik, Form } from 'formik';
 import FormField from '../FormField/FormField';
 import CustomButton from '../CustomButton/CustomButton';
@@ -15,10 +15,11 @@ import { feedbackSchema } from './feedback-schema';
 import styles from './RegisterForm.module.css';
 
 const RegisterForm = () => {
+  const { user } = useAuth();
   const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
     dispatch(register(values));
-    actions.resetForm();
+    user.name && actions.resetForm();
   };
   return (
     <Formik
