@@ -1,6 +1,6 @@
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import { RiContactsBook2Fill } from 'react-icons/ri';
-import { TITLE, AUTHOR } from '../../auxiliary/constants';
+import { TITLE, AUTHOR, TOOLS } from '../../auxiliary/constants';
 import styles from './Home.module.css';
 
 const Home = () => {
@@ -11,6 +11,7 @@ const Home = () => {
       <span aria-label="IoIosContacts icon">
         <RiContactsBook2Fill className={`${styles.icon} ${styles.large}`} />
       </span>
+      <p className="styles.lang">{TOOLS}</p>
     </div>
   );
 };
