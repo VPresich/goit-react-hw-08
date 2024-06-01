@@ -1,13 +1,11 @@
-import { Helmet } from 'react-helmet';
+import DocumentTitle from '../components/DocumentTitle';
 import AppSection from '../components/AppSection/AppSection';
 import RegisterForm from '../components/RegisterForm/RegisterForm';
 
 const Register = () => {
   return (
     <div>
-      <Helmet>
-        <title>Registration</title>
-      </Helmet>
+      <DocumentTitle>Register</DocumentTitle>
       <AppSection>
         <RegisterForm />
       </AppSection>
